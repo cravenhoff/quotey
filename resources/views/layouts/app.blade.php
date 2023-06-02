@@ -7,9 +7,9 @@
     <title>Quotey - Share a quote, inspire and rank</title>
     @vite('resources/css/app.css')
 </head>
-<body>
+<body class="bg-gray-200">
     <!-- Main navigation -->
-    <nav class="px-3 py-3 bg-gray-100 border-b-2 border-gray-200 flex justify-between">
+    <nav class="p-6 bg-white flex justify-between mb-6">
         <!-- Main Nav Links -->
         <ul class="flex items-center">
             <li>
