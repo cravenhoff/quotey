@@ -19,4 +19,5 @@ Route::get('/quotes', function () {
 });
 
 // Create 'register' route
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']); // Add the 'post' route to process the register form submission
