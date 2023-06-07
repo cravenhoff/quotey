@@ -13,10 +13,10 @@
         <!-- Main Nav Links -->
         <ul class="flex items-center">
             <li>
-                <a href="" class="p-3">Home</a>
+                <a href="/" class="p-3">Home</a>
             </li>
             <li>
-                <a href="" class="p-3">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="p-3">Dashboard</a>
             </li>
             <li>
                 <a href="{{ route('quotes') }}" class="p-3">Quotes</a>
@@ -30,7 +30,10 @@
                     <a href="" class="p-3">Crystal Kewe</a>
                 </li>
                 <li>
-                    <a href="" class="p-3">Logout</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                       @csrf
+                        <button type="submit">Logout</button>
+                    </form>
                 </li>
             @endauth
 
