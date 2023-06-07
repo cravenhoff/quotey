@@ -35,7 +35,8 @@ class RegisterController extends Controller
         ]);
 
         /* ----- SIGN-IN NEWLY REGISTERED USER ----- */
-
+        // Use the auth() function to access the new user created (you can only use the Auth:: facade)
+        auth()->attempt($request->only('email', 'password'));        
 
         /* ----- REDIRECT USER ----- */
         return redirect()->route('dashboard');
