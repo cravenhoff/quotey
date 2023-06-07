@@ -19,7 +19,7 @@
                 <a href="" class="p-3">Dashboard</a>
             </li>
             <li>
-                <a href="" class="p-3">Quotes</a>
+                <a href="{{ route('quotes') }}" class="p-3">Quotes</a>
             </li>
         </ul>
         <!-- Profile Links -->

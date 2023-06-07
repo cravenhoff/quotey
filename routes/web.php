@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/quotes', function () {
     return view('quotes.index');
-});
+})->name('quotes');
 
 // Create 'register' route
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']); // Add the 'post' route to process the register form submission
+
+// Create 'dashboard' route
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
