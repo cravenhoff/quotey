@@ -24,18 +24,25 @@
         </ul>
         <!-- Profile Links -->
         <ul class="flex items-center">
-            <li>
-                <a href="" class="p-3">Crystal Kewe</a>
-            </li>
-            <li>
-                <a href="" class="p-3">Login</a>
-            </li>
-            <li>
-                <a href="{{ route('register') }}" class="p-3">Register</a>
-            </li>
-            <li>
-                <a href="" class="p-3">Logout</a>
-            </li>
+            {{-- Display links if user is authenticated, i.e. successfully signed in --}}
+            @auth
+                <li>
+                    <a href="" class="p-3">Crystal Kewe</a>
+                </li>
+                <li>
+                    <a href="" class="p-3">Logout</a>
+                </li>
+            @endauth
+
+            {{-- Display links if guest --}}
+            @guest
+                <li>
+                    <a href="{{ route('login') }}" class="p-3">Login</a>
+                </li>
+                <li>
+                    <a href="{{ route('register') }}" class="p-3">Register</a>
+                </li>
+            @endguest
         </ul>
     </nav>
 

@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,7 @@ Route::post('/register', [RegisterController::class, 'store']); // Add the 'post
 
 // Create 'dashboard' route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Create 'login' route
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']); // Add the 'post' route to process the login form submission
