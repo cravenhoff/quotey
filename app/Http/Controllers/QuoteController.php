@@ -21,6 +21,16 @@ class QuoteController extends Controller
             'body' => 'required|max:555',
         ]); // if fails, throws an exception
 
-        
+        /* ----- STORE NEW QUOTE INTO DATABASE ----- */
+        // $request->user()->quotes()->create([
+        //     // Based on the above declared relationship, laravel will automatically get the user_id and input it into the appropriate column in the quotes table when registering the new quote.
+        //     'body' => $request->body
+        // ]);
+
+        // Shorter hand method
+        $request->user()->quotes()->create($request->only('body'));
+
+        // Redirect user back to original page
+        return back();
     }
 }

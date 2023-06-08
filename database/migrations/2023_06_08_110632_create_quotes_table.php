@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // creates a foreign key linked to the 'users' table's ID column, with onDelete() responsible for deleting any quotes belonging to a particular user when they're record is deleted from the database.
+            $table->text('body');
             $table->timestamps();
         });
     }

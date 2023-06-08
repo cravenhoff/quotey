@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Establish eloquent relationship between user and posts
+    public function quotes() {
+        return $this->hasMany(Quote::class);
+    }
 }
