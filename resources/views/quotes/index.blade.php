@@ -10,7 +10,7 @@
                 </p>
             </div>
             <!-- Post/Add Quote Form -->
-            <form action="{{ route('quotes') }}" method="post" class="mb-4">
+            <form action="{{ route('quotes') }}" method="post" class="mb-8">
                 @csrf
                 <!-- Input Field 1: Quote Body -->
                 <div class="mb-3">
@@ -40,6 +40,9 @@
                             <p>{{ $quote->body }}</p>
                         </div>
                     @endforeach
+
+                    {{-- End pagination links --}}
+                    {{ $quotes->links() }}
                 @else
                     <p>There are no quotes</p>
                 @endif
