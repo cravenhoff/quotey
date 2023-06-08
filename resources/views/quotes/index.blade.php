@@ -10,7 +10,7 @@
                 </p>
             </div>
             <!-- Post/Add Quote Form -->
-            <form action="{{ route('quotes') }}" method="post">
+            <form action="{{ route('quotes') }}" method="post" class="mb-4">
                 @csrf
                 <!-- Input Field 1: Quote Body -->
                 <div class="mb-3">
@@ -28,6 +28,23 @@
                     <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-mdeium">Post</button>
                 </div>
             </form>
+
+            {{-- Registerd Quotes Listing --}}
+            <div>
+                <!-- Check if there are quotes present in the database -->
+                @if ($quotes->count())
+                    <!-- Loop through and output each quote record -->
+                    @foreach ($quotes as $quote)
+                        <div class="mb-4">
+                            <a href="#" class="font-bold">{{ $quote->user->name }} <span class="text-sm text-gray-600">{{ $quote->created_at->diffForHumans() }}</span></a>
+                            <p>{{ $quote->body }}</p>
+                        </div>
+                    @endforeach
+                @else
+                    <p>There are no quotes</p>
+                @endif
+            </div>
+
         </div>
     </div>
 @endsection

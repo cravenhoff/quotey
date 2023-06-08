@@ -17,4 +17,9 @@ class Quote extends Model
     protected $fillable = [
         'body',
     ];
+
+    // Establish eloquent relationship between user and posts
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

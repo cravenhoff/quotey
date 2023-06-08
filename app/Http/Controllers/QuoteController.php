@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quote;
 use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
     // Create index() method that serves 'quotes' view
     public function index() {
-        return view('quotes.index');
+        /* ----- RETRIEVE LIST OF QUOTE ENTRIES IN DATABASE ----- */
+        $quotes = Quote::get(); // Retrieves in-sequence, the list of all records available
+        
+        // Ensure collecton of $quotes is accessible to be displayed as a list in the view
+        return view('quotes.index', [
+            'quotes' => $quotes
+        ]);
     }
 
     // Create store() method that processes the add quote 'form' submission
