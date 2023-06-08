@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    // Run auth() middleware to ensure only guests can access the 'Register' page.
+    public function __construct() {
+        $this->middleware(['guest']);
+    }
+
     // Create index() method that serves 'register' view
     public function index() {
         return view('auth.register');

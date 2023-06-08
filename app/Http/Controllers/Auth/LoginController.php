@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    // Run auth() middleware to ensure only guests can access the 'Login' page.
+    public function __construct() {
+        $this->middleware(['guest']);
+    }
+    
     // Create index() method that serves 'login' view
     public function index() {
         return view('auth.login');
