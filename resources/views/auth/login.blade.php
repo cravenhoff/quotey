@@ -40,7 +40,12 @@
                         </div>
                     @enderror
                 </div>
-                <!-- Field 3: Submit Button -->
+                <!-- Input Field 3: Remember Me -->
+                <div class="mb-3">
+                    <input type="checkbox" name="remember" id="remember" class="mr-2" value="on">
+                    <label for="remember" class="font-semibold">Remember me</label>
+                </div>
+                <!-- Field 4: Submit Button -->
                 <div>
                     <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-mdeium w-full">Register</button>
                 </div>

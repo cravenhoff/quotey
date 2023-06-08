@@ -19,6 +19,8 @@ class LoginController extends Controller
 
      // Create store() method that processes the login 'form' submission
      public function store(Request $request) {
+        // dd($request->remember);
+
         /* ----- VALIDATION ----- */
         // Validate form using validate() method of the base controller.
         $this->validate($request, [
@@ -28,7 +30,7 @@ class LoginController extends Controller
 
         /* ----- SIGN-IN NEWLY REGISTERED USER ----- */
         // Use the auth() function to access the new user created (you can only use the Auth:: facade)
-        if(!auth()->attempt($request->only('email', 'password'))) { // First check if the user authentication is not valid
+        if(!auth()->attempt($request->only('email', 'password'), $request->remember)) { // First check if the user authentication is not valid
             return back()->with('status', 'Invalid login credentials');
         } 
 
