@@ -27,7 +27,7 @@
             {{-- Display links if user is authenticated, i.e. successfully signed in --}}
             @auth
                 <li>
-                    <a href="" class="p-3">Crystal Kewe</a>
+                    <a href="" class="p-3">{{ auth()->user()->name }}</a>
                 </li>
                 <li>
                     <form action="{{ route('logout') }}" method="POST">
