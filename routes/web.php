@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\QuoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,6 @@ use App\Http\Controllers\Auth\RegisterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/quotes', function () {
-    return view('quotes.index');
-})->name('quotes');
 
 // Create 'register' route
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -39,3 +36,7 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/', function() {
     return view('home');
 })->name('home');
+
+// Create 'quotes' route
+Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes');
+Route::post('/quotes', [QuoteController::class, 'store']);

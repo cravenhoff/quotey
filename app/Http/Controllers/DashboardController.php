@@ -13,7 +13,7 @@ class DashboardController extends Controller
 
     // Create the index() function to serve the dashboard blade view template/page
     public function index() {
-        // dd(auth()->user());
+        // dd(auth()->user()->quotes);
         return view('dashboard');
     }
 }
