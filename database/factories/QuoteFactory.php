@@ -17,7 +17,8 @@ class QuoteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // Add the factory definition to seed the 'body' column of the quotes table
+            'body' => fake()->sentence(20),
         ];
     }
 }
