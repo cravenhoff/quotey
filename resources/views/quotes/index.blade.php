@@ -35,9 +35,24 @@
                 @if ($quotes->count())
                     <!-- Loop through and output each quote record -->
                     @foreach ($quotes as $quote)
-                        <div class="mb-4">
+                        <div class="mb-2 mt-4">
                             <a href="#" class="font-bold">{{ $quote->user->name }} <span class="text-sm text-gray-600">{{ $quote->created_at->diffForHumans() }}</span></a>
                             <p>{{ $quote->body }}</p>
+                        </div>
+
+                        <!-- Add the like and unlike links/buttons -->
+                        <div class="flex text-center">
+                            <form action="" method="post" class="mr-1">
+                                @csrf
+                                <button type="submit" class="text-blue-500">Like</button>
+                            </form>
+                            <form action="" method="post" class="mr-1">
+                                @csrf
+                                <button type="submit" class="text-blue-500">Unlike</button>
+                            </form>
+
+                            <!-- Add likes count -->
+                            {{ $quote->likes->count() }} {{ Str::plural('like', $quote->likes->count()) }}
                         </div>
                     @endforeach
 
