@@ -42,7 +42,7 @@
 
                         <!-- Add the like and unlike links/buttons -->
                         <div class="flex text-center">
-                            <form action="" method="post" class="mr-1">
+                            <form action="{{ route('quotes.likes', $quote->id) }}" method="post" class="mr-1">
                                 @csrf
                                 <button type="submit" class="text-blue-500">Like</button>
                             </form>

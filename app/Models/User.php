@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Like;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -43,8 +44,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // Establish eloquent relationship between user and posts
+    // Establish eloquent relationship between user and quotes
     public function quotes() {
         return $this->hasMany(Quote::class);
+    }
+
+    // Add eloquent relationship between users and likes
+    public function likes() {
+        return $this->hasMany(Like::class);
     }
 }

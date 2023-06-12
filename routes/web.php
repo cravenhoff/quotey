@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\QuoteLikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,6 @@ Route::get('/', function() {
 // Create 'quotes' route
 Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes');
 Route::post('/quotes', [QuoteController::class, 'store']);
+
+// Create 'quote like' route
+Route::post('/quotes/{quote}/likes', [QuoteLikeController::class, 'store'])->name('quotes.likes');
