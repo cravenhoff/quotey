@@ -19,6 +19,11 @@ class Quote extends Model
         'body',
     ];
 
+    // Validate to ensure no user submits more than one like to a quote
+    public function likedBy(User $user) {
+        return $this->likes->contains('user_id', $user->id); // The contains method is a collections method used to check if a particular key exists.
+    }
+
     // Establish eloquent relationship between user and quotes
     public function user() {
         return $this->belongsTo(User::class);
