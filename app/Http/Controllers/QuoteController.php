@@ -13,7 +13,7 @@ class QuoteController extends Controller
         // $quotes = Quote::get(); // Retrieves in-sequence, the list of all records available
         
         // Use the pagination() method instead to limit the number of listed records retrieved
-        $quotes = Quote::paginate(8);
+        $quotes = Quote::paginate(3);
         // dd($quotes); // Instead of returning a 'collection' as the get() method did, the paginate() method returned a 'LengthAwarePaginator'
 
         // Ensure collecton of $quotes is accessible to be displayed as a list in the view
