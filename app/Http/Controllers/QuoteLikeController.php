@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class QuoteLikeController extends Controller
 {
+    // Add middleware to prevent guests and unauthorized users from liking quotes
+    public function __construct() {
+        $this->middleware(['auth']);
+    }
+
     // Create store() method that processes the addition of likes to quotes
     public function store(Quote $quote, Request $request) {
         // dd($quote->likedBy($request->user()));

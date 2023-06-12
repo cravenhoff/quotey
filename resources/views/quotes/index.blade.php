@@ -42,14 +42,17 @@
 
                         <!-- Add the like and unlike links/buttons -->
                         <div class="flex text-center">
-                            <form action="{{ route('quotes.likes', $quote->id) }}" method="post" class="mr-1">
-                                @csrf
-                                <button type="submit" class="text-blue-500">Like</button>
-                            </form>
-                            <form action="" method="post" class="mr-1">
-                                @csrf
-                                <button type="submit" class="text-blue-500">Unlike</button>
-                            </form>
+                            @if (!$quote->likedBy(auth()->user()))
+                                <form action="{{ route('quotes.likes', $quote->id) }}" method="post" class="mr-1">
+                                    @csrf
+                                    <button type="submit" class="text-blue-500">Like</button>
+                                </form>
+                            @else
+                                <form action="" method="post" class="mr-1">
+                                    @csrf
+                                    <button type="submit" class="text-blue-500">Unlike</button>
+                                </form>
+                            @endif
 
                             <!-- Add likes count -->
                             {{ $quote->likes->count() }} {{ Str::plural('like', $quote->likes->count()) }}
