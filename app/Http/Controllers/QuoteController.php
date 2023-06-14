@@ -10,8 +10,6 @@ class QuoteController extends Controller
     // Create index() method that serves 'quotes' view
     public function index() {
         /* ----- RETRIEVE LIST OF QUOTE ENTRIES IN DATABASE ----- */
-        // $quotes = Quote::get(); // Retrieves in-sequence, the list of all records available
-        
         // Use the pagination() method instead to limit the number of listed records retrieved
         $quotes = Quote::paginate(3);
         // dd($quotes); // Instead of returning a 'collection' as the get() method did, the paginate() method returned a 'LengthAwarePaginator'
@@ -24,8 +22,7 @@ class QuoteController extends Controller
 
     // Create store() method that processes the add quote 'form' submission
     public function store(Request $request) {
-        // dd('post quote');
-
+        
         /* ----- VALIDATION ----- */
         // Validate form using validate() method of the base controller.
         $this->validate($request, [
