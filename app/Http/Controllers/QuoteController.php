@@ -11,7 +11,7 @@ class QuoteController extends Controller
     public function index() {
         /* ----- RETRIEVE LIST OF QUOTE ENTRIES IN DATABASE ----- */
         // Use the pagination() method instead to limit the number of listed records retrieved
-        $quotes = Quote::with(['user', 'likes'])->paginate(5); // Add 'eager loading' to the paginator query
+        $quotes = Quote::orderBy('created_at', 'desc')->with(['user', 'likes'])->paginate(3); // Add 'eager loading' to the paginator query
         // dd($quotes); // Instead of returning a 'collection' as the get() method did, the paginate() method returned a 'LengthAwarePaginator'
 
         // Ensure collecton of $quotes is accessible to be displayed as a list in the view
