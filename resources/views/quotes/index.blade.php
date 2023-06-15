@@ -41,13 +41,13 @@
                         </div>
 
                         <!-- Add the 'delete' link and button -->
-                        <div>
+                        @can('delete', $quote)
                             <form action="{{ route('quotes.destroy', $quote) }}" method="post" class="mr-1">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-blue-500">Delete</button>
                             </form>
-                        </div>
+                        @endcan
 
                         <!-- Add the like and unlike links/buttons -->
                         <div class="flex text-center">
