@@ -25,4 +25,13 @@ class QuoteLikeController extends Controller
 
         return back();
     }
+
+    // Create destory() method to process the 'dislike' feature of quotes
+    public function destroy (Quote $quote, Request $request) {
+        // dd($quote);
+        $request->user()->likes()->where('quote_id', $quote->id)->delete();
+
+        // Redirect user back to the previous page
+        return back();
+    }
 }

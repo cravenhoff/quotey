@@ -44,3 +44,6 @@ Route::post('/quotes', [QuoteController::class, 'store']);
 
 // Create 'quote like' route
 Route::post('/quotes/{quote}/likes', [QuoteLikeController::class, 'store'])->name('quotes.likes');
+
+// Create 'quote dislike' route
+Route::delete('/quotes/{quote}/likes', [QuoteLikeController::class, 'destroy'])->name('quotes.like');
