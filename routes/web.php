@@ -51,4 +51,4 @@ Route::post('/quotes/{quote}/likes', [QuoteLikeController::class, 'store'])->nam
 Route::delete('/quotes/{quote}/likes', [QuoteLikeController::class, 'destroy'])->name('quotes.like');
 
 // Create 'detailed user view and quotes' route
-Route::get('/users/{user}/quotes', [UserQuoteController::class, 'index'])->name('users.quotes');
+Route::get('/users/{user:name}/quotes', [UserQuoteController::class, 'index'])->name('users.quotes');
