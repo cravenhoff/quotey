@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\QuoteLikeController;
+use App\Http\Controllers\UserQuoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,6 @@ Route::post('/quotes/{quote}/likes', [QuoteLikeController::class, 'store'])->nam
 
 // Create 'quote dislike' route
 Route::delete('/quotes/{quote}/likes', [QuoteLikeController::class, 'destroy'])->name('quotes.like');
+
+// Create 'detailed user view and quotes' route
+Route::get('/users/{user}/quotes', [UserQuoteController::class, 'index'])->name('users.quotes');

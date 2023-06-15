@@ -36,7 +36,7 @@
                     <!-- Loop through and output each quote record -->
                     @foreach ($quotes as $quote)
                         <div class="mb-2 mt-4">
-                            <a href="#" class="font-bold">{{ $quote->user->name }} <span class="text-sm text-gray-600">{{ $quote->created_at->diffForHumans() }}</span></a>
+                            <a href="{{ route('users.quotes', $quote->user) }}" class="font-bold">{{ $quote->user->name }} <span class="text-sm text-gray-600">{{ $quote->created_at->diffForHumans() }}</span></a>
                             <p>{{ $quote->body }}</p>
                         </div>
 
