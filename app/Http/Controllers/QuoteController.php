@@ -44,13 +44,9 @@ class QuoteController extends Controller
 
     // Create a destroy() method to 'delete' quote entries
     public function destroy(Quote $quote) {
-        // dd($quote);
+        // Check to see if the 'delete' function can be used on a specific quote, using the inbuilt authorize() shorthand
+        $this->authorize('delete', $quote); // This throws an exception.
 
-        // Add validation to ensure user is the authorized owner of the quote about to be deleted
-        if(!$quote->ownedBy(auth()->user())) {
-            dd('no');
-        }
-        
         $quote->delete();
 
         // Redirect user back to original page

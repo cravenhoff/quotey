@@ -41,15 +41,13 @@
                         </div>
 
                         <!-- Add the 'delete' link and button -->
-                        @if ($quote->ownedBy(auth()->user()))
-                            <div>
-                                <form action="{{ route('quotes.destroy', $quote) }}" method="post" class="mr-1">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-blue-500">Delete</button>
-                                </form>
-                            </div>
-                        @endif
+                        <div>
+                            <form action="{{ route('quotes.destroy', $quote) }}" method="post" class="mr-1">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-blue-500">Delete</button>
+                            </form>
+                        </div>
 
                         <!-- Add the like and unlike links/buttons -->
                         <div class="flex text-center">
