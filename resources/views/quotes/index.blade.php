@@ -42,7 +42,7 @@
 
                         <!-- Add the 'delete' link and button -->
                         <div>
-                            <form action="#" method="post" class="mr-1">
+                            <form action="{{ route('quotes.destroy', $quote) }}" method="post" class="mr-1">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-blue-500">Delete</button>

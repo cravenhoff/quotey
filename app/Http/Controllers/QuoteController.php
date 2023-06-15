@@ -41,4 +41,13 @@ class QuoteController extends Controller
         // Redirect user back to original page
         return back();
     }
+
+    // Create a destroy() method to 'delete' quote entries
+    public function destroy(Quote $quote) {
+        // dd($quote);
+        $quote->delete();
+
+        // Redirect user back to original page
+        return back();
+    }
 }

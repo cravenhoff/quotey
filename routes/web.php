@@ -41,6 +41,7 @@ Route::get('/', function() {
 // Create 'quotes' route
 Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes');
 Route::post('/quotes', [QuoteController::class, 'store']);
+Route::delete('/quotes/{quote}', [QuoteController::class, 'destroy'])->name('quotes.destroy');
 
 // Create 'quote like' route
 Route::post('/quotes/{quote}/likes', [QuoteLikeController::class, 'store'])->name('quotes.likes');
