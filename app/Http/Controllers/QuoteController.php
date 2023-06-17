@@ -20,6 +20,13 @@ class QuoteController extends Controller
         ]);
     }
 
+    // Create show() method to display a separate, dedicated page per quote
+    public function show(Quote $quote) {
+        return view('quotes.show', [
+            'quote' => $quote,
+        ]);
+    }
+
     // Create store() method that processes the add quote 'form' submission
     public function store(Request $request) {
         
