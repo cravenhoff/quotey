@@ -18,10 +18,10 @@ class DashboardController extends Controller
         // dd(auth()->user()->quotes);
 
         // Grab a user from the database
-        $user = auth()->user();
+        // $user = auth()->user();
 
         // Use the Mail Facade to send a new email
-        Mail::to($user)->send(new QuoteLiked());
+        // Mail::to($user)->send(new QuoteLiked());
 
         return view('dashboard');
     }
