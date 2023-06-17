@@ -6,7 +6,7 @@
             {{-- Header --}}
             <div class="p-6">
                 <h1 class="text-2xl font-medium mb-1">{{ $user->name }}</h1>
-                <p>Posted {{ $quotes->count() }} {{ Str::plural('quote', $quotes->count()) }}</p>
+                <p>Posted {{ $quotes->count() }} {{ Str::plural('quote', $quotes->count()) }} and received {{ $user->receivedLikes->count() }} likes.</p>
             </div>
 
             {{-- Registerd Quotes Listing --}}
