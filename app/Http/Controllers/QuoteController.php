@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth'])->only(['store', 'destroy']);
+    }
+
     // Create index() method that serves 'quotes' view
     public function index() {
         /* ----- RETRIEVE LIST OF QUOTE ENTRIES IN DATABASE ----- */
